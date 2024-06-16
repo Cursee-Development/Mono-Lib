@@ -26,13 +26,13 @@ public class MonoLibForge {
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event) {
-        MinecraftForge.EVENT_BUS.register(new SailingEvent());
+        MinecraftForge.EVENT_BUS.register(SailingEvent.class);
     }
 
     @Mod.EventBusSubscriber
     public static class SailingEvent {
         @SubscribeEvent
-        public void onEntityJoinLevel(EntityJoinLevelEvent event) {
+        public static void onEntityJoinLevel(EntityJoinLevelEvent event) {
 //            if (!Sailing.onEntityJoinLevel(event.getLevel(), event.getEntity())) {
 //                event.setCanceled(true);
 //            }
