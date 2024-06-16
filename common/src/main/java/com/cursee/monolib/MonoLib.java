@@ -1,5 +1,6 @@
 package com.cursee.monolib;
 
+import com.cursee.monolib.core.MonoLibConfiguration;
 import com.cursee.monolib.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Items;
@@ -27,5 +28,7 @@ public class MonoLib {
 
             Constants.LOG.info("Hello to monolib");
         }
+
+        MonoLibConfiguration.initialize();
     }
 }
