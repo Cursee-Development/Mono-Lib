@@ -21,4 +21,9 @@ public class FabricPlatformHelper implements IPlatformHelper {
 
         return FabricLoader.getInstance().isDevelopmentEnvironment();
     }
+
+    @Override
+    public String getGameDirectory() {
+        return FabricLoader.getInstance().getGameDir().toString();
+    }
 }
