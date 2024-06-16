@@ -1,6 +1,7 @@
 package com.cursee.monolib;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 
 public class MonoLibFabric implements ModInitializer {
     
@@ -14,5 +15,9 @@ public class MonoLibFabric implements ModInitializer {
         // Use Fabric to bootstrap the Common mod.
         Constants.LOG.info("Hello Fabric world!");
         MonoLib.init();
+
+        ServerEntityEvents.ENTITY_LOAD.register((entity, level) -> {
+//            Sailing.onEntityJoinLevel(level, entity);
+        });
     }
 }
