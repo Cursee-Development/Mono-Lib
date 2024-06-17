@@ -1,9 +1,12 @@
 package com.cursee.monolib;
 
 import com.cursee.monolib.core.MonoLibConfiguration;
+import com.cursee.monolib.core.sailing.Sailing;
 import com.cursee.monolib.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Items;
+import oshi.util.tuples.Pair;
+import oshi.util.tuples.Triplet;
 
 // This class is part of the common project meaning it is shared between all supported loaders. Code written here can only
 // import and access the vanilla codebase, libraries used by vanilla, and optionally third party libraries that provide
@@ -30,5 +33,6 @@ public class MonoLib {
         }
 
         MonoLibConfiguration.initialize();
+        Sailing.register(Constants.MOD_NAME, Constants.MOD_ID, Constants.MOD_VERSION, Constants.MC_VERSION_RAW, new Pair<String, String>("Lupin", "Jason13"), new Triplet<String, String, String>("https://www.curseforge.com/members/lupin/projects", "https://www.curseforge.com/members/lupin/projects", "https://modrinth.com/user/Lupin/mods"));
     }
 }

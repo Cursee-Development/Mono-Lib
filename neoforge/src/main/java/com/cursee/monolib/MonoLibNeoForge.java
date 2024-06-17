@@ -1,6 +1,7 @@
 package com.cursee.monolib;
 
 
+import com.cursee.monolib.core.sailing.Sailing;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -33,9 +34,9 @@ public class MonoLibNeoForge {
     public static class SailingEvent {
         @SubscribeEvent
         public static void onEntityJoinLevel(EntityJoinLevelEvent event) {
-//            if (!Sailing.onEntityJoinLevel(event.getLevel(), event.getEntity())) {
-//                event.setCanceled(true);
-//            }
+            if (!Sailing.onEntityJoinLevel(event.getLevel(), event.getEntity())) {
+                event.setCanceled(true);
+            }
         }
     }
 }
