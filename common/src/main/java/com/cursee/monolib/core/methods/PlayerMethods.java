@@ -20,7 +20,7 @@ public class PlayerMethods {
 
         ItemStack stack = player.getMainHandItem();
 
-        return EnchantmentHelper.hasAnyEnchantments(stack);
+        return !EnchantmentHelper.getEnchantments(stack).isEmpty();
     }
 
     /** Checks if a player is holding an enchanted item in their offhand */
@@ -32,7 +32,7 @@ public class PlayerMethods {
 
         ItemStack stack = player.getOffhandItem();
 
-        return EnchantmentHelper.hasAnyEnchantments(stack);
+        return !EnchantmentHelper.getEnchantments(stack).isEmpty();
     }
 
     /** Checks if player's name matches the development use for Fabric, Forge, or NeoForge. */
