@@ -5,6 +5,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 
 public class MonoLibFabric implements ModInitializer {
+
+    public Boolean DEBUG = false;
     
     @Override
     public void onInitialize() {
