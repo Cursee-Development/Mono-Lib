@@ -13,6 +13,8 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 @Mod(Constants.MOD_ID)
 public class MonoLibNeoForge {
 
+    public Boolean DEBUG = false;
+
     public MonoLibNeoForge(IEventBus eventBus) {
 
         // This method is invoked by the NeoForge mod loader when it is ready
