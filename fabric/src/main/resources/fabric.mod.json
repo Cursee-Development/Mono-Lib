@@ -16,10 +16,10 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.cursee.examplemod.ExampleModFabric"
+            "com.cursee.monolib.MonoLibFabric"
         ],
         "client": [
-            "com.cursee.examplemod.ExampleModClientFabric"
+            "com.cursee.monolib.MonoLibClientFabric"
         ]
     },
     "mixins": [
@@ -30,8 +30,7 @@
         "fabricloader": ">=0.14",
         "fabric": "*",
         "minecraft": "${minecraft_version}",
-        "java": ">=17",
-        "monolib": ">=1.4.1"
+        "java": ">=17"
     },
     "suggests": {
         "another-mod": "*"
