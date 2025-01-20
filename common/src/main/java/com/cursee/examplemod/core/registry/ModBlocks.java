@@ -13,11 +13,12 @@ import java.util.function.BiConsumer;
 
 public class ModBlocks {
 
-    public static final Block EXAMPLE_BLOCK = new Block(BlockBehaviour.Properties.of().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
+    // must be registered if defined
+    // public static final Block EXAMPLE_BLOCK = new Block(BlockBehaviour.Properties.of().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
 
     public static void register(BiConsumer<Block, ResourceLocation> consumer) {
         if (Services.PLATFORM.isDevelopmentEnvironment()) {
-            consumer.accept(EXAMPLE_BLOCK, ExampleMod.identifier("example_block"));
+            // consumer.accept(EXAMPLE_BLOCK, ExampleMod.identifier("example_block"));
         }
     }
 }
