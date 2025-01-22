@@ -443,7 +443,7 @@ public class DomainRules {
         rules.addRule("zerocraft.ru");
         rules.addRule("zinchat.com");
         rules.addRule("zonacraft.net");
-        // rules.addRule("curseforge.com"); // todo: only used for testing, comment out when unused
+        // rules.addRule("curseforge.com"); // only used for testing, comment out when unused
         return rules;
     }
 

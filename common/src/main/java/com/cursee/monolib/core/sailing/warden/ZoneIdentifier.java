@@ -93,7 +93,7 @@ public final class ZoneIdentifier {
      * @return The stripped string, or the input string if info could not be stripped.
      */
     private static String stripInfo(String urlString) {
-        // TODO In production urls usually have a protocol and a path but additional safeguards would be nice.
+        // in production, urls usually have a protocol and a path but additional safeguards would be nice to add
         int startIdx = urlString.indexOf("://");
         if (startIdx != -1) {
             startIdx += 3;
