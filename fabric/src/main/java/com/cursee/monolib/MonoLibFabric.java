@@ -14,7 +14,7 @@ public class MonoLibFabric implements ModInitializer {
         MonoLib.init();
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
         ServerEntityEvents.ENTITY_LOAD.register(Sailing::onEntityJoinLevel);
-        CommandRegistrationCallback.EVENT.register((MonoLibCommand::defineCommands));
+        CommandRegistrationCallback.EVENT.register(MonoLibCommand::defineCommands);
         RegistryFabric.register();
     }
 }
