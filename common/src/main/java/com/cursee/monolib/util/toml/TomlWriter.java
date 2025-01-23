@@ -26,8 +26,11 @@ import static com.cursee.monolib.util.toml.ValueWriters.WRITERS;
 //  * String tomlString = new TomlWriter().write(new AClass());
 //  * </code></pre>
 //  */
-/** @see com.cursee.monolib.core.config.SimpleConfig */
-@Deprecated(since = "2.0.0", forRemoval = false)
+/**
+ * Adapted from <a href="https://github.com/mwanji/toml4j">Mwanji's Toml4J</a>.
+ * @see com.cursee.monolib.core.config.SimpleConfig
+ */
+// @Deprecated(since = "2.0.0", forRemoval = false)
 public class TomlWriter {
   
   public static class Builder {

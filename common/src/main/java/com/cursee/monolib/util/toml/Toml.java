@@ -7,10 +7,10 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Adapted from <a href="https://github.com/mwanji/toml4j">Mwanji's Toml4J</a> under MIT license.
+ * Adapted from <a href="https://github.com/mwanji/toml4j">Mwanji's Toml4J</a>.
  * @see com.cursee.monolib.core.config.SimpleConfig
  */
-@Deprecated(since = "2.0.0", forRemoval = false)
+// @Deprecated(since = "2.0.0", forRemoval = false)
 public class Toml {
 
   private static final Gson DEFAULT_GSON = new Gson();

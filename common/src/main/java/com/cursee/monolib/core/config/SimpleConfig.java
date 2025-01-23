@@ -9,7 +9,11 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-/** Wrapper class for Toml and TomlWriter. */
+/**
+ * Wrapper class for Toml and TomlWriter.
+ * @see com.cursee.monolib.util.toml.Toml
+ * @see com.cursee.monolib.util.toml.TomlWriter
+ */
 public class SimpleConfig {
 
     public Map<String, Object> values = new HashMap<String, Object>();
