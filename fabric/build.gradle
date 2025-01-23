@@ -14,7 +14,7 @@ dependencies {
     // ModMenu
     modImplementation "curse.maven:modmenu-308702:5810603"
 
-    modImplementation "curse.maven:monolib-968432:5838449"
+    // modImplementation "curse.maven:monolib-968432:5838449"
 }
 
 loom {

@@ -4,16 +4,20 @@ plugins {
 }
 
 neoForge {
+
     version = neoforge_version
+
     // Automatically enable neoforge AccessTransformers if the file exists
     def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) {
         accessTransformers.from(at.absolutePath)
     }
+
     parchment {
         minecraftVersion = minecraft_version
         mappingsVersion = parchment_version
     }
+
     runs {
         configureEach {
             systemProperty('neoforge.enabledGameTestNamespaces', mod_id)
@@ -29,13 +33,15 @@ neoForge {
             server()
         }
     }
+
     mods {
         "${mod_id}" {
             sourceSet sourceSets.main
         }
     }
+
     dependencies {
-        implementation "curse.maven:monolib-968432:5838463"
+        // implementation "curse.maven:monolib-968432:5838463"
     }
 }
 
