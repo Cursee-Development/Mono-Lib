@@ -1,8 +1,9 @@
 package com.cursee.monolib.core;
 
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.cursee.monolib.core.config.SimpleConfigEntry;
 
 public class ConfiguredValues {
 
-    public static final AtomicBoolean ENABLE_JAR_VERIFICATION = new AtomicBoolean(true);
+    public static final SimpleConfigEntry<Boolean> ENABLE_DEBUGGING = new SimpleConfigEntry<Boolean>("enable_debugging", false);
+    public static final SimpleConfigEntry<Boolean> ENABLE_JAR_VERIFICATION = new SimpleConfigEntry<Boolean>("enable_jar_verification", true);
 }
