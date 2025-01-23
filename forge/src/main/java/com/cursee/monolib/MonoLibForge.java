@@ -1,8 +1,10 @@
 package com.cursee.monolib;
 
+import com.cursee.monolib.core.command.MonoLibCommand;
 import com.cursee.monolib.core.registry.RegistryForge;
 import com.cursee.monolib.core.sailing.Sailing;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -15,6 +17,7 @@ public class MonoLibForge {
         MonoLib.init();
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
         MinecraftForge.EVENT_BUS.addListener((Consumer<EntityJoinLevelEvent>) event -> Sailing.onEntityJoinLevel(event.getEntity(), event.getLevel()));
+        MinecraftForge.EVENT_BUS.addListener((Consumer<RegisterCommandsEvent>) event -> MonoLibCommand.defineCommands(event.getDispatcher(), event.getBuildContext(), event.getCommandSelection()));
         RegistryForge.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }
