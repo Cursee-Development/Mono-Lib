@@ -4,7 +4,8 @@
   "package": "com.cursee.monolib.mixin",
   "compatibilityLevel": "JAVA_18",
   "mixins": [
-    "AccessorWeightedRandomList"
+    "AccessorWeightedRandomList",
+    "AccessorCommandContext"
   ],
   "client": [
     "MixinTitleScreen"

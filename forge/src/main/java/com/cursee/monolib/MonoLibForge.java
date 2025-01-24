@@ -1,7 +1,6 @@
 package com.cursee.monolib;
 
 import com.cursee.monolib.core.command.MonoLibCommands;
-import com.cursee.monolib.core.command.hand.HandArgument;
 import com.cursee.monolib.core.registry.RegistryForge;
 import com.cursee.monolib.core.sailing.Sailing;
 import net.minecraft.commands.synchronization.ArgumentTypeInfo;
@@ -28,9 +27,9 @@ public class MonoLibForge {
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
         EVENT_BUS = context.getModEventBus();
         MinecraftForge.EVENT_BUS.addListener((Consumer<EntityJoinLevelEvent>) event -> Sailing.onEntityJoinLevel(event.getEntity(), event.getLevel()));
-        MonoLibForge.EVENT_BUS.addListener((Consumer<RegisterEvent>) event -> {
-            if (event.getRegistryKey().equals(Registries.COMMAND_ARGUMENT_TYPE)) event.<ArgumentTypeInfo<?, ?>>register(Registries.COMMAND_ARGUMENT_TYPE, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "item_output"), () -> ArgumentTypeInfos.registerByClass(HandArgument.class, HandArgument.SERIALIZER));
-        });
+        // MonoLibForge.EVENT_BUS.addListener((Consumer<RegisterEvent>) event -> {
+        //     if (event.getRegistryKey().equals(Registries.COMMAND_ARGUMENT_TYPE)) event.<ArgumentTypeInfo<?, ?>>register(Registries.COMMAND_ARGUMENT_TYPE, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "item_output"), () -> ArgumentTypeInfos.registerByClass(HandArgument.class, HandArgument.SERIALIZER));
+        // });
         MinecraftForge.EVENT_BUS.addListener((Consumer<RegisterCommandsEvent>) event -> MonoLibCommands.defineCommands(event.getDispatcher(), event.getBuildContext(), event.getCommandSelection()));
         RegistryForge.register(EVENT_BUS);
     }

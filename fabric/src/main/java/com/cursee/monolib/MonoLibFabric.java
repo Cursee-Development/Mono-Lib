@@ -1,7 +1,6 @@
 package com.cursee.monolib;
 
 import com.cursee.monolib.core.command.MonoLibCommands;
-import com.cursee.monolib.core.command.hand.HandArgument;
 import com.cursee.monolib.core.registry.RegistryFabric;
 import com.cursee.monolib.core.sailing.Sailing;
 import net.fabricmc.api.ModInitializer;
@@ -17,7 +16,7 @@ public class MonoLibFabric implements ModInitializer {
         MonoLib.init();
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
         ServerEntityEvents.ENTITY_LOAD.register(Sailing::onEntityJoinLevel);
-        ArgumentTypeRegistry.registerArgumentType(new ResourceLocation(Constants.MOD_ID, "item_output"), HandArgument.class, HandArgument.SERIALIZER);
+        // ArgumentTypeRegistry.registerArgumentType(new ResourceLocation(Constants.MOD_ID, "item_output"), HandArgument.class, HandArgument.SERIALIZER);
         CommandRegistrationCallback.EVENT.register(MonoLibCommands::defineCommands);
         RegistryFabric.register();
     }

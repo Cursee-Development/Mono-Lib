@@ -2,8 +2,7 @@ package com.cursee.monolib.core.command;
 
 import com.cursee.monolib.Constants;
 import com.cursee.monolib.core.ConfiguredValues;
-import com.cursee.monolib.core.command.hand.HandArgument;
-import com.cursee.monolib.core.command.hand.HandArgumentHelper;
+import com.cursee.monolib.core.command.hand.HandCommand;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.minecraft.commands.CommandBuildContext;
@@ -17,12 +16,16 @@ public class MonoLibCommands {
 
     public static void defineCommands(CommandDispatcher<CommandSourceStack> commandDispatcher, CommandBuildContext commandContext, Commands.CommandSelection commandEnvironment) {
 
-        final LiteralArgumentBuilder<CommandSourceStack> root = Commands.literal(Constants.MOD_ID);
-        root.requires(MonoLibCommands::isPlayerOperator).executes(context -> showCommandHelp(context.getSource()));
-        root.then(questionMark());
-        root.then(help());
-        root.then(debug());
-        root.then(hand());
+        // 1.20.1
+//        final LiteralArgumentBuilder<CommandSourceStack> root = Commands.literal(Constants.MOD_ID);
+//        root.requires(MonoLibCommands::isPlayerOperator).executes(context -> showCommandHelp(context.getSource()));
+//        root.then(questionMark());
+//        root.then(help());
+//        root.then(debug());
+//        root.then(hand());
+
+        final LiteralArgumentBuilder<CommandSourceStack> root = LiteralArgumentBuilder.literal(Constants.MOD_ID);
+        root.then(HandCommand.build(commandContext));
 
         commandDispatcher.register(root);
     }
@@ -60,11 +63,20 @@ public class MonoLibCommands {
         return command;
     }
 
-    public static LiteralArgumentBuilder<CommandSourceStack> hand() {
+//    public static LiteralArgumentBuilder<CommandSourceStack> hand() {
+//
+//        final LiteralArgumentBuilder<CommandSourceStack> command = Commands.literal("hand");
+//
+//        command.then(HandArgument.arg().executes(HandArgumentHelper::printHeldStack));
+//
+//        return command;
+//    }
+
+    public static LiteralArgumentBuilder<CommandSourceStack> hand(CommandBuildContext context) {
 
         final LiteralArgumentBuilder<CommandSourceStack> command = Commands.literal("hand");
 
-        command.then(HandArgument.arg().executes(HandArgumentHelper::printHeldStack));
+        // command.then(HandArgument.arg().executes(HandArgumentHelper::printHeldStack));
 
         return command;
     }
