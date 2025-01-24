@@ -1,6 +1,7 @@
 package com.cursee.monolib.mixin;
 
 import com.cursee.monolib.core.callback.AnvilEventsFabric;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.*;
@@ -30,7 +31,11 @@ public abstract class FabricAnvilMenuMixin extends ItemCombinerMenu {
         ItemStack injected$slotRight = injected$inputSlots.getItem(1);
         ItemStack injected$slotOutput = this.resultSlots.getItem(0);
 
-        int injected$baseCost = injected$slotLeft.getBaseRepairCost() + (injected$slotRight.isEmpty() ? 0 : injected$slotRight.getBaseRepairCost());
+        // 1.20.1
+        // int injected$baseCost = injected$slotLeft.getBaseRepairCost() + (injected$slotRight.isEmpty() ? 0 : injected$slotRight.getBaseRepairCost());
+
+        // 1.21.1
+        int injected$baseCost = injected$slotLeft.getOrDefault(DataComponents.REPAIR_COST, 0) + (injected$slotRight.isEmpty() ? 0 : injected$slotRight.getOrDefault(DataComponents.REPAIR_COST, 0));
 
         Triplet<Integer, Integer, ItemStack> injected$triple = AnvilEventsFabric.UPDATE.invoker().onUpdate(instance, injected$slotLeft, injected$slotRight, injected$slotOutput, itemName, injected$baseCost, this.player);
 
