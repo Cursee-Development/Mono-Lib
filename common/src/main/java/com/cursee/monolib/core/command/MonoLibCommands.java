@@ -12,6 +12,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.player.Player;
 
+/**
+ * Adapted from Darkhax's <a href="https://github.com/Darkhax-Minecraft/Bookshelf">Bookshelf</a>
+ */
 public class MonoLibCommands {
 
     public static void defineCommands(CommandDispatcher<CommandSourceStack> commandDispatcher, CommandBuildContext commandContext, Commands.CommandSelection commandEnvironment) {
@@ -24,8 +27,12 @@ public class MonoLibCommands {
 //        root.then(debug());
 //        root.then(hand());
 
+        // 1.21.1
         final LiteralArgumentBuilder<CommandSourceStack> root = LiteralArgumentBuilder.literal(Constants.MOD_ID);
-        root.then(HandCommand.build(commandContext));
+        root.then(questionMark());
+        root.then(help());
+        root.then(debug());
+        root.then(hand());
 
         commandDispatcher.register(root);
     }
@@ -63,22 +70,8 @@ public class MonoLibCommands {
         return command;
     }
 
-//    public static LiteralArgumentBuilder<CommandSourceStack> hand() {
-//
-//        final LiteralArgumentBuilder<CommandSourceStack> command = Commands.literal("hand");
-//
-//        command.then(HandArgument.arg().executes(HandArgumentHelper::printHeldStack));
-//
-//        return command;
-//    }
-
-    public static LiteralArgumentBuilder<CommandSourceStack> hand(CommandBuildContext context) {
-
-        final LiteralArgumentBuilder<CommandSourceStack> command = Commands.literal("hand");
-
-        // command.then(HandArgument.arg().executes(HandArgumentHelper::printHeldStack));
-
-        return command;
+    public static LiteralArgumentBuilder<CommandSourceStack> hand() {
+        return CommandHelper.buildFromEnum("hand", HandCommand.class);
     }
 
     public static int showCommandHelp(CommandSourceStack source) {

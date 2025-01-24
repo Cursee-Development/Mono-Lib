@@ -60,17 +60,17 @@ import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-//import net.minecraft.world.item.enchantment.LevelBasedValue;
-//import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
-//import net.minecraft.world.item.enchantment.effects.EnchantmentLocationBasedEffect;
-//import net.minecraft.world.item.enchantment.effects.EnchantmentValueEffect;
-//import net.minecraft.world.item.enchantment.providers.EnchantmentProvider;
+import net.minecraft.world.item.enchantment.LevelBasedValue;
+import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
+import net.minecraft.world.item.enchantment.effects.EnchantmentLocationBasedEffect;
+import net.minecraft.world.item.enchantment.effects.EnchantmentValueEffect;
+import net.minecraft.world.item.enchantment.providers.EnchantmentProvider;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-//import net.minecraft.world.level.block.entity.DecoratedPotPattern;
+import net.minecraft.world.level.block.entity.DecoratedPotPattern;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.Property;
@@ -119,6 +119,9 @@ import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
+/**
+ * Adapted from Darkhax's <a href="https://github.com/Darkhax-Minecraft/Bookshelf">Bookshelf</a>
+ */
 @SuppressWarnings("unused")
 public class MapCodecs {
 
@@ -197,7 +200,7 @@ public class MapCodecs {
     public static final MapCodecHelper<Holder<CatVariant>> CAT_VARIANT = RegistryMapCodecHelper.create(BuiltInRegistries.CAT_VARIANT);
     public static final MapCodecHelper<Holder<FrogVariant>> FROG_VARIANT = RegistryMapCodecHelper.create(BuiltInRegistries.FROG_VARIANT);
     public static final MapCodecHelper<Holder<Instrument>> INSTRUMENT = RegistryMapCodecHelper.create(BuiltInRegistries.INSTRUMENT);
-    // public static final MapCodecHelper<Holder<DecoratedPotPattern>> DECORATED_POT_PATTERN = RegistryMapCodecHelper.create(BuiltInRegistries.DECORATED_POT_PATTERN);
+    public static final MapCodecHelper<Holder<DecoratedPotPattern>> DECORATED_POT_PATTERN = RegistryMapCodecHelper.create(BuiltInRegistries.DECORATED_POT_PATTERN);
     public static final MapCodecHelper<Holder<CreativeModeTab>> CREATIVE_MODE_TAB = RegistryMapCodecHelper.create(BuiltInRegistries.CREATIVE_MODE_TAB);
     public static final MapCodecHelper<Holder<CriterionTrigger<?>>> TRIGGER_TYPES = RegistryMapCodecHelper.create(BuiltInRegistries.TRIGGER_TYPES);
     public static final MapCodecHelper<Holder<NumberFormatType<?>>> NUMBER_FORMAT_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.NUMBER_FORMAT_TYPE);
@@ -206,12 +209,12 @@ public class MapCodecs {
     public static final MapCodecHelper<Holder<MapCodec<? extends EntitySubPredicate>>> ENTITY_SUB_PREDICATE_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENTITY_SUB_PREDICATE_TYPE);
     public static final MapCodecHelper<Holder<ItemSubPredicate.Type<?>>> ITEM_SUB_PREDICATE_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ITEM_SUB_PREDICATE_TYPE);
     public static final MapCodecHelper<Holder<MapDecorationType>> MAP_DECORATION_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.MAP_DECORATION_TYPE);
-    // public static final MapCodecHelper<Holder<DataComponentType<?>>> ENCHANTMENT_EFFECT_COMPONENT_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_EFFECT_COMPONENT_TYPE);
-    // public static final MapCodecHelper<Holder<MapCodec<? extends LevelBasedValue>>> ENCHANTMENT_LEVEL_BASED_VALUE_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_LEVEL_BASED_VALUE_TYPE);
-    // public static final MapCodecHelper<Holder<MapCodec<? extends EnchantmentEntityEffect>>> ENCHANTMENT_ENTITY_EFFECT_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_ENTITY_EFFECT_TYPE);
-    // public static final MapCodecHelper<Holder<MapCodec<? extends EnchantmentLocationBasedEffect>>> ENCHANTMENT_LOCATION_BASED_EFFECT_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_LOCATION_BASED_EFFECT_TYPE);
-    // public static final MapCodecHelper<Holder<MapCodec<? extends EnchantmentValueEffect>>> ENCHANTMENT_VALUE_EFFECT_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_VALUE_EFFECT_TYPE);
-    // public static final MapCodecHelper<Holder<MapCodec<? extends EnchantmentProvider>>> ENCHANTMENT_PROVIDER_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_PROVIDER_TYPE);
+    public static final MapCodecHelper<Holder<DataComponentType<?>>> ENCHANTMENT_EFFECT_COMPONENT_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_EFFECT_COMPONENT_TYPE);
+    public static final MapCodecHelper<Holder<MapCodec<? extends LevelBasedValue>>> ENCHANTMENT_LEVEL_BASED_VALUE_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_LEVEL_BASED_VALUE_TYPE);
+    public static final MapCodecHelper<Holder<MapCodec<? extends EnchantmentEntityEffect>>> ENCHANTMENT_ENTITY_EFFECT_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_ENTITY_EFFECT_TYPE);
+    public static final MapCodecHelper<Holder<MapCodec<? extends EnchantmentLocationBasedEffect>>> ENCHANTMENT_LOCATION_BASED_EFFECT_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_LOCATION_BASED_EFFECT_TYPE);
+    public static final MapCodecHelper<Holder<MapCodec<? extends EnchantmentValueEffect>>> ENCHANTMENT_VALUE_EFFECT_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_VALUE_EFFECT_TYPE);
+    public static final MapCodecHelper<Holder<MapCodec<? extends EnchantmentProvider>>> ENCHANTMENT_PROVIDER_TYPE = RegistryMapCodecHelper.create(BuiltInRegistries.ENCHANTMENT_PROVIDER_TYPE);
 
     // ENUMS
     public static final MapCodecHelper<Rarity> ITEM_RARITY = new MapCodecHelper<>(enumerable(Rarity.class));

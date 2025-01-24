@@ -1,6 +1,7 @@
 package com.cursee.monolib.core.serialization.conditions;
 
 /**
+ * Adapted from Darkhax's <a href="https://github.com/Darkhax-Minecraft/Bookshelf">Bookshelf</a>
  * Load conditions allow JSON entries in data/resource packs to define optional conditions in order for them to load.
  * For example a recipe file can prevent loading if a required item is not registered.
  */
