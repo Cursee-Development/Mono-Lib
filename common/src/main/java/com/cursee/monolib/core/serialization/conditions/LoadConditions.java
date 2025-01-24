@@ -15,6 +15,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Adapted from Darkhax's <a href="https://github.com/Darkhax-Minecraft/Bookshelf">Bookshelf</a>
+ */
 public class LoadConditions {
 
     private static final Map<ResourceLocation, ConditionType> CONDITION_TYPES = new HashMap<>();

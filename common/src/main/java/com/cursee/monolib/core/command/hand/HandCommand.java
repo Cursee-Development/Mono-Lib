@@ -35,6 +35,9 @@ import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.function.BiFunction;
 
+/**
+ * Adapted from Darkhax's <a href="https://github.com/Darkhax-Minecraft/Bookshelf">Bookshelf</a>
+ */
 public enum HandCommand implements IEnumCommand {
 
     ID((stack, level) -> {

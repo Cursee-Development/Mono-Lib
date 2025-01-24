@@ -7,6 +7,9 @@ import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 
+/**
+ * Adapted from Darkhax's <a href="https://github.com/Darkhax-Minecraft/Bookshelf">Bookshelf</a>
+ */
 public class RegistryMapCodecHelper<T> extends MapCodecHelper<Holder<T>> {
 
     private final MapCodecHelper<TagKey<T>> tagHelper;

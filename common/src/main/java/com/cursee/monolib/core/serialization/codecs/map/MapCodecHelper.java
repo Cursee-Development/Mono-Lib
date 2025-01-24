@@ -14,6 +14,7 @@ import java.util.function.Function;
 import java.util.function.IntFunction;
 
 /**
+ * Adapted from Darkhax's <a href="https://github.com/Darkhax-Minecraft/Bookshelf">Bookshelf</a>
  * A CodecHelper wraps a Codec to provide a large amount of helpers and utilities to make working with the Codec easier
  * and more flexible.
  *
