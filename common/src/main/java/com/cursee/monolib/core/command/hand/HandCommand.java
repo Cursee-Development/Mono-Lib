@@ -27,6 +27,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.Locale;
 import java.util.Objects;
+import java.util.StringJoiner;
 import java.util.function.BiFunction;
 
 /**
@@ -43,7 +44,17 @@ public enum HandCommand implements IEnumCommand {
         return Component.literal(text).withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, text)));
     }),
     INGREDIENT(fromCodec(MapCodecs.INGREDIENT.get(), (stack, level) -> Ingredient.of(stack))),
-    STACK_JSON(fromCodec(MapCodecs.ITEM_STACK.get(), (stack, level) -> stack));
+    STACK_JSON(fromCodec(MapCodecs.ITEM_STACK.get(), (stack, level) -> stack)),
+    SNBT((stack, level) -> {
+        final StringJoiner joiner = new StringJoiner("\n");
+        stack.getComponents().forEach(typedDataComponent -> joiner.add(typedDataComponent.toString()));
+        return Component.literal(joiner.toString());
+    }),
+    TAGS(((stack, level) -> {
+        final StringJoiner joiner = new StringJoiner("\n");
+        stack.getTags().forEach(itemTagKey -> joiner.add(itemTagKey.location().toString()));
+        return Component.literal(joiner.toString());
+    }));
 
     private final ItemFormat format;
 
