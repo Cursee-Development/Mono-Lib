@@ -22,10 +22,10 @@ public class MonoLibForge {
 
     public static IEventBus EVENT_BUS = null;
     
-    public MonoLibForge(FMLJavaModLoadingContext context) {
+    public MonoLibForge() {
         MonoLib.init();
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
-        EVENT_BUS = context.getModEventBus();
+        EVENT_BUS = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.addListener((Consumer<EntityJoinLevelEvent>) event -> Sailing.onEntityJoinLevel(event.getEntity(), event.getLevel()));
         // MonoLibForge.EVENT_BUS.addListener((Consumer<RegisterEvent>) event -> {
         //     if (event.getRegistryKey().equals(Registries.COMMAND_ARGUMENT_TYPE)) event.<ArgumentTypeInfo<?, ?>>register(Registries.COMMAND_ARGUMENT_TYPE, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "item_output"), () -> ArgumentTypeInfos.registerByClass(HandArgument.class, HandArgument.SERIALIZER));
