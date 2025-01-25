@@ -39,6 +39,11 @@ public abstract class FabricAnvilMenuMixin extends ItemCombinerMenu {
 
         Triplet<Integer, Integer, ItemStack> injected$triple = AnvilEventsFabric.UPDATE.invoker().onUpdate(instance, injected$slotLeft, injected$slotRight, injected$slotOutput, itemName, injected$baseCost, this.player);
 
+        // Still being used by EatAnOmelette and GoldenFoods. todo: remove after EatAnOmelette 2.0.0 and GoldenFoods 3.0.0
+        if (injected$triple == null) {
+            // see if anything is registered to the deprecated event
+            injected$triple = com.cursee.monolib.callback.AnvilEventsFabric.UPDATE.invoker().onUpdate(instance, injected$slotLeft, injected$slotRight, injected$slotOutput, itemName, injected$baseCost, this.player);
+        }
         if (injected$triple == null) return;
 
         if (injected$triple.getA() >= 0) cost.set(injected$triple.getA());
