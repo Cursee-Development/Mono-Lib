@@ -41,9 +41,21 @@ public class Sailing {
     private static final Map<String, String> FILENAME_TO_MOD_NAME_MAP = new HashMap<String, String>();
     private static final Map<String, SailingEntry> MOD_NAME_TO_ENTRY_MAP = new HashMap<String, SailingEntry>();
 
+    /** First .equals("more_useful_copper") can be removed after MoreUsefulCopper 2.0.0 gets fixed lol */
     @Deprecated(since = "2.0.0", forRemoval = true)
     public static void register(String modName, String modID, String modVersion, String minecraftVersion, Pair<String, String> publisherAuthorPair, Triplet<String, String, String> modURLTriplet) {
-        register(modID, modName, modVersion, publisherAuthorPair.getA(), modURLTriplet.getA());
+        if (modID.equals("more_useful_copper") && modVersion.equals("2.0.0")) minecraftVersion = SharedConstants.VERSION_STRING;
+        if ((minecraftVersion.replaceAll("\\[", "").replaceAll("]", "")).equals(SharedConstants.VERSION_STRING)) register(modID, modName, modVersion, publisherAuthorPair.getA(), modURLTriplet.getA());
+        else registerHardcodedMCVersion(modID, modName, modVersion, minecraftVersion.replaceAll("\\[", "").replaceAll("]", ""), publisherAuthorPair.getA(), modURLTriplet.getA());
+    }
+
+    @Deprecated(since = "2.0.0", forRemoval = true)
+    public static void registerHardcodedMCVersion(String modID, String modName, String modVersion, String minecraftVersion, String modPublisher, String modURL) {
+        String filename = modID + '-' + "merged" + '-' + minecraftVersion + '-' + modVersion + ".jar";
+        FILENAME_TO_MOD_NAME_MAP.put(filename, modName);
+
+        final SailingEntry sailingEntry = new SailingEntry(modID, modName, modVersion, modPublisher, modURL);
+        MOD_NAME_TO_ENTRY_MAP.put(modName, sailingEntry);
     }
 
     /**
