@@ -7,6 +7,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
+/** Still being used by MobDropsRecipes: Overworld/End, AutoMessage, TimeOnDisplay, and MoreBeautifulTorches. */
 @Deprecated(since = "2.0.0", forRemoval = true)
 public class BlockMethods {
 
