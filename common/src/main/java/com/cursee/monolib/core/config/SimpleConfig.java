@@ -52,7 +52,7 @@ public class SimpleConfig {
 
     public static SimpleConfig getOrCreateCommon(String modId, Set<SimpleConfigEntry<?>> references) {
 
-        File CONFIG_FILE = new File(Services.PLATFORM.getGameDirectory() + File.separator + "config" + File.separator + Constants.MOD_ID + "-common.toml");
+        File CONFIG_FILE = new File(Services.PLATFORM.getGameDirectory() + File.separator + "config" + File.separator + modId + "-common.toml");
         try {
             if (CONFIG_FILE.exists()) return read(CONFIG_FILE);
             else {
@@ -70,7 +70,7 @@ public class SimpleConfig {
 
     public static SimpleConfig getOrCreateClient(String modId, Set<SimpleConfigEntry<?>> references) {
 
-        File CONFIG_FILE = new File(Services.PLATFORM.getGameDirectory() + File.separator + "config" + File.separator + Constants.MOD_ID + "-client.toml");
+        File CONFIG_FILE = new File(Services.PLATFORM.getGameDirectory() + File.separator + "config" + File.separator + modId + "-client.toml");
         try {
             if (CONFIG_FILE.exists()) return read(CONFIG_FILE);
             else {
@@ -88,7 +88,7 @@ public class SimpleConfig {
 
     public static SimpleConfig getOrCreateDedicatedServer(String modId, Set<SimpleConfigEntry<?>> references) {
 
-        File CONFIG_FILE = new File(Services.PLATFORM.getGameDirectory() + File.separator + "config" + File.separator + Constants.MOD_ID + "-server.toml");
+        File CONFIG_FILE = new File(Services.PLATFORM.getGameDirectory() + File.separator + "config" + File.separator + modId + "-server.toml");
         try {
             if (CONFIG_FILE.exists()) return read(CONFIG_FILE);
             else {
