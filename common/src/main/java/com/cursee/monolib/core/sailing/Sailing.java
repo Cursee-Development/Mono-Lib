@@ -41,7 +41,7 @@ public class Sailing {
     private static final Map<String, String> FILENAME_TO_MOD_NAME_MAP = new HashMap<String, String>();
     private static final Map<String, SailingEntry> MOD_NAME_TO_ENTRY_MAP = new HashMap<String, SailingEntry>();
 
-    /** First .equals("more_useful_copper") can be removed after MoreUsefulCopper 2.0.0 gets fixed lol */
+    /** todo First .equals("more_useful_copper") can be removed after MoreUsefulCopper 2.0.0 gets fixed lol */
     @Deprecated(since = "2.0.0", forRemoval = true)
     public static void register(String modName, String modID, String modVersion, String minecraftVersion, Pair<String, String> publisherAuthorPair, Triplet<String, String, String> modURLTriplet) {
         if (modID.equals("more_useful_copper") && modVersion.equals("2.0.0")) minecraftVersion = SharedConstants.VERSION_STRING;
