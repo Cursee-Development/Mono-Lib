@@ -106,7 +106,8 @@ public class Sailing {
 
             sendMessage(player, "Mod(s) from incorrect sources:", ChatFormatting.RED);
             for (String modName : MOD_NAMES_MISSING_JAR_FILE) {
-                sendMessage(player, modName + " (Click Here)", ChatFormatting.YELLOW, MOD_NAME_TO_ENTRY_MAP.get(modName).modURL());
+                SailingEntry entry = MOD_NAME_TO_ENTRY_MAP.get(modName);
+                sendMessage(player, modName + " by " + entry.modPublisher() + " (Click Here)", ChatFormatting.YELLOW, entry.modURL());
             }
 
             sendMessage(player, "You a receiving this message because one or more of your mod files has been altered and possibly not downloaded from an original and safe source. Unofficial sources can contain malicious software or host outdated versions of mods, as well as removing ad revenue from mod authors.", ChatFormatting.RED);
